@@ -19,7 +19,7 @@ def recursion(j):
 		glub += 1
 		r=requests.get(j)		
 		res=r.text;
-		result=re.findall( '[\w\.-]+@[\w\.-]+',res);	
+		result=re.findall( '[A-Za-z\d][\w\.-]+@[\w\.-]+\.[A-Za-z\d-]+[a-zA-Z\d]',res);	
 		for email in result:
 			mails.add(email)
 		l=re.findall('<a\s+href="(/(?!:)[^"#]+)',res);

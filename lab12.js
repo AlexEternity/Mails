@@ -1,5 +1,5 @@
 var request = require('request');
-URL = 'http://www.mosigra.ru';
+URL = 'http://www.rbc.ru';
 mails=[];
 ssilki=[];
 mail=/[A-Za-z\d][\w\.-]+@[\w\.-]+\.[A-Za-z\d-]+[a-zA-Z\d]/ig;
@@ -8,9 +8,9 @@ function unique(arr) {
   var result = [];
   nextInput:
     for (var i = 0; i < arr.length; i++) {
-      var str = arr[i]; // äëÿ êàæäîãî ýëåìåíòà
-      for (var j = 0; j < result.length; j++) { // èùåì, áûë ëè îí óæå?
-        if (result[j] == str) continue nextInput; // åñëè äà, òî ñëåäóþùèé
+      var str = arr[i]; // Ã¤Ã«Ã¿ ÃªÃ Ã¦Ã¤Ã®Ã£Ã® Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã 
+      for (var j = 0; j < result.length; j++) { // Ã¨Ã¹Ã¥Ã¬, Ã¡Ã»Ã« Ã«Ã¨ Ã®Ã­ Ã³Ã¦Ã¥?
+        if (result[j] == str) continue nextInput; // Ã¥Ã±Ã«Ã¨ Ã¤Ã , Ã²Ã® Ã±Ã«Ã¥Ã¤Ã³Ã¾Ã¹Ã¨Ã©
       }
       result.push(str);
     }
@@ -21,13 +21,11 @@ j=0;
 k=10;
 function recursion(url)
 {
-console.log(url);
 	j=j+1;
 request(URL, function (err,res,body) 
 {
     if (err) throw err;
 	var mails1=body.match(mail);
-
 	if(typeof(mails1)!=null)
 	{
 		mails1=unique(mails1);
@@ -50,6 +48,6 @@ request(URL, function (err,res,body)
 		}
 	
 });
-if(j==11){console.log(mails);}
+if(j>=k){console.log(mails);}
 }
 recursion(URL);

@@ -49,15 +49,13 @@ request(URL, function (err,res,body)
 	j=j+1
 	if(j<k)
 	{
-		ssilki1=ssilki1.concat(ssilki);
-		ssilki1=unique(ssilki1);
 		for(i=0;i<Math.min(k,ssilki.length);i++)
 		{   s=s+1;
 			recursion(ssilki[i]);
 		}
 	}
 });
-if(j>k){console.log(mails);}
+console.log(mails);
 }
 
 recursion(URL);
